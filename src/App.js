@@ -1,23 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import User from "./components/User";
+
+const users = [
+  { id: 1, userName: "Rein" },
+  { id: 2, userName: "David" },
+  { id: 3, userName: "Kelley" },
+  { id: 4, userName: "Wouter" }
+];
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {/* Passing props */}
+        <User userName="Rein" />
+        {/* <User userName="David" />
+        <User userName="Kelley" />
+        <User userName="Wouter" /> */}
+        {users.map(user => {
+          return <User key={user.id} userName={user.userName} />;
+        })}
       </header>
     </div>
   );
